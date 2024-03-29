@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Back Office</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/base.css">
+    </head>
+    <body>
+
+        <section>
+
+            <nav> 
+                <h1>BACK OFFICE</h1>
+                <h2>Ajouter/modifier un film</h2>
+            </nav>
+            
+            <form method='GET' action="../server/script.php">
+
+                <h3>ajouter un film</h3>
+                
+                <input type="text" name="titre" placeholder="Saisir le titre du film" required>
+                <input type="text" name="realisateur" placeholder="Saisir le nom du/des réalisateur(s)" required>
+                <input type="number" name="annee" placeholder="Saisir l'année de sortie du film" required>
+                <input type="text" name="urlImg" placeholder="Saisir l'url de la cover du film" required>
+                <input type="text" name="trailer" placeholder="Saisir l'url du trailer du film" required>
+                <select class="categorie-containers" name="categorie">
+                </select>
+                
+                <input type="submit" value="addFilm" name="action">
+
+            </form>
+
+
+            <form method='GET' action="../server/script.php">
+
+                <h3>Supprimer un film</h3>
+
+                <select name="film" class="list-films">
+                </select>
+
+                <input type="submit" value="Delete" name="action">
+
+            </form>
+
+        </section>
+        <script type="module">
+
+            import {Film} from './options.js';
+            // on permet à Menu d'être accessible globalement (notamment par main.js)
+            window.Film = Film;
+
+            import {Categorie} from './options.js';
+            window.Categorie = Categorie;
+
+            // faire de même pour tous les composants que vous créez
+        </script>
+        <script src="./script.js">
+        </script>
+    </body>
+</html>
