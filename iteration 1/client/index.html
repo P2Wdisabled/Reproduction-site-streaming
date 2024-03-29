@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Netfloux+ Prime Video</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+       
+        <link rel="stylesheet" href="./css/base.css" />
+
+    </head>
+    <body>
+
+        
+        <section id="app">
+            <header class=""> <!-- contenu statique -->
+                <button onclick="getmovies()">all</button>
+                
+            </header>
+            <div class="films-container"> <!-- contenu dynamique -->
+            </div>
+        </section>
+
+        <script type="module">
+
+            import {Films} from './component/films/script.js';
+            window.Films = Films;
+        </script>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
