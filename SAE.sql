@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 29 mars 2024 à 08:55
+-- Généré le : ven. 29 mars 2024 à 10:25
 -- Version du serveur : 10.5.23-MariaDB-0+deb11u1
 -- Version de PHP : 8.1.27
 
@@ -63,12 +63,19 @@ INSERT INTO `Categories` (`id_categorie`, `labelle`) VALUES
 
 CREATE TABLE `Comptes` (
   `id_utilisateur` int(11) NOT NULL,
-  `nom` varchar(30) NOT NULL,
-  `prenom` varchar(30) NOT NULL,
-  `email` varchar(70) NOT NULL,
-  `pswd` varchar(64) NOT NULL,
-  `dateNaissance` date NOT NULL
+  `nom` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `Comptes`
+--
+
+INSERT INTO `Comptes` (`id_utilisateur`, `nom`) VALUES
+(1, 'bob'),
+(2, 'jean'),
+(3, 'louis'),
+(4, 'gilian'),
+(5, 'mel');
 
 -- --------------------------------------------------------
 
@@ -117,6 +124,25 @@ INSERT INTO `Films` (`id_film`, `titre`, `realisateur`, `annee`, `urlImage`, `ur
 (2, 'Avengers: Endgame', 'Anthony et Joe Russo', 2019, 'https://fr.web.img2.acsta.net/pictures/19/04/04/09/04/0472053.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bgTlt5-l-AA?si=0mUOiD0ei6o0IBkg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>'),
 (3, 'Oppenheimer', 'Christopher Nolan', 2023, 'https://fr.web.img5.acsta.net/pictures/23/05/26/16/52/2793170.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/CoXtvSRpHgM?si=kZvWn_8U9f3M3TdT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `Playlist`
+--
+
+CREATE TABLE `Playlist` (
+  `id_film` int(11) NOT NULL,
+  `id_profile` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `Playlist`
+--
+
+INSERT INTO `Playlist` (`id_film`, `id_profile`) VALUES
+(1, 5),
+(2, 5);
+
 --
 -- Index pour les tables déchargées
 --
@@ -147,6 +173,13 @@ ALTER TABLE `Films`
   ADD PRIMARY KEY (`id_film`);
 
 --
+-- Index pour la table `Playlist`
+--
+ALTER TABLE `Playlist`
+  ADD PRIMARY KEY (`id_film`,`id_profile`),
+  ADD KEY `id_profile` (`id_profile`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -160,7 +193,7 @@ ALTER TABLE `Categories`
 -- AUTO_INCREMENT pour la table `Comptes`
 --
 ALTER TABLE `Comptes`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `Films`
@@ -178,6 +211,13 @@ ALTER TABLE `Films`
 ALTER TABLE `FilmCategorie`
   ADD CONSTRAINT `FilmCategorie_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `Films` (`id_film`),
   ADD CONSTRAINT `FilmCategorie_ibfk_2` FOREIGN KEY (`id_categorie`) REFERENCES `Categories` (`id_categorie`);
+
+--
+-- Contraintes pour la table `Playlist`
+--
+ALTER TABLE `Playlist`
+  ADD CONSTRAINT `Playlist_ibfk_1` FOREIGN KEY (`id_film`) REFERENCES `Films` (`id_film`),
+  ADD CONSTRAINT `Playlist_ibfk_2` FOREIGN KEY (`id_profile`) REFERENCES `Comptes` (`id_utilisateur`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
