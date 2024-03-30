@@ -1,0 +1,11 @@
+<div class="film__trailer-container">
+    {{trailer}}
+    <span>Titre : {{titre}}</span><br>
+    <span>Réalisation {{rea}}</span><br>
+    <span>date de sortie : {{annee}}</span><br>
+    <textarea class="commentaire" id="" cols="15" rows="2"></textarea>
+    <input type="submit" onclick="addComment('{{idmovie}}')" name="action" value="addComment">
+    <ul class="commentaires">
+        {{listCommentaires}}
+    </ul>
+</div>

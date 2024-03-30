@@ -1,0 +1,17 @@
+body {
+    background-size: cover;
+    background: var(--clr-blackbg);
+}
+.films-container{
+  width: 90%;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
