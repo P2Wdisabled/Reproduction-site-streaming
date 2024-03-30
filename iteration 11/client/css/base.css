@@ -1,0 +1,6 @@
+@import './reset.css';
+@import './variables.css';
+@import './utilities.css';
+
+@import '../component/films/style.css';
+@import '../component/showfilm/style.css';

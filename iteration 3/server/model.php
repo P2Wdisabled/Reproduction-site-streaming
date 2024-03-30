@@ -14,19 +14,10 @@ function getCategories(){
 }
 function addFilm($film, $rea, $annee, $img, $trailer, $categorie){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-
-// Première insertion dans la table Films
 $answer = $cnx->query("insert into Films (titre, realisateur, annee, urlImage, urlTrailer) VALUES ('$film', '$rea', '$annee', '$img', '$trailer')");
-
-// Pour obtenir l'ID du dernier enregistrement inséré, utilisez lastInsertId() sur l'objet PDO ($cnx) directement
 $idFilm = $cnx->lastInsertId();
-
-// Deuxième insertion avec l'ID récupéré
 $answer = $cnx->query("insert into FilmCategorie (id_film, id_categorie) VALUES ($idFilm, $categorie)");
-
-// Addition des lignes affectées par les deux insertions
 $res = $answer->rowCount();
-
 return $res;
 
 }
