@@ -12,13 +12,18 @@ let getListFilms = async function(){
   let response = await fetch("../server/script.php?action=getmovies");
   let data = await response.json();
   Priorite.render('.list-films', data);
-  Priorite.render('.list-films2', data);
 }
 
+let getListPriorite = async function(){
+  let response = await fetch("../server/script.php?action=getPriorite");
+  let data = await response.json();
+  Priorite.render('.list-priorite', data);
+}
 
 
 setTimeout(() => {
   getProfilList();
   getListCategorie();
   getListFilms();
+  getListPriorite();
 }, 500);

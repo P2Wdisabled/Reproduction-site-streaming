@@ -100,7 +100,7 @@ let Priorite = {};
     @return string, le template HTML formaté avec les données de l'objet
 */
 Priorite.format =  function(obj) {
-    let html = template2;
+    let html = template3;
     html = html.replaceAll('{{id}}', obj.id_film);
     html = html.replaceAll('{{titre}}', obj.titre);
     return html;
@@ -129,3 +129,4 @@ export {Priorite}
 
 // Note : seul Priorite est exporté (et donc Priorite.render et Priorite.format)
 // La variable 2 n'est pas exportée, elle n'est donc pas accessible depuis l'extérieur (et c'est tant mieux)
+

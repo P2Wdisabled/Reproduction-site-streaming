@@ -71,6 +71,7 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=='getmovies' ){
   exit(); // termine le script (ce qui est en dessous ne s'exécutera pas)
 }
 
+
 if ( isset($_REQUEST['action']) && $_REQUEST['action']=='getProfiles' ){
   $profiles_list = getProfiles();
   echo json_encode($profiles_list);
