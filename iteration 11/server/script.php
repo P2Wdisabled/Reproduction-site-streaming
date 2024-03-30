@@ -65,6 +65,16 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=='DelPriorite' ){
   exit(); // termine le script (ce qui est en dessous ne s'exécutera pas)
 }
 
+if ( isset($_REQUEST['action']) && $_REQUEST['action']=='deleteComment' ){
+  $ok = deleteComment($_REQUEST['commentaire']);
+  if ($ok>0){
+    echo "Le commentaire à été correctement supprimé.";
+  }
+  else{
+    echo "Pas d'action effectué' (une erreur est survenu).";
+  }
+  exit(); // termine le script (ce qui est en dessous ne s'exécutera pas)
+}
 if ( isset($_REQUEST['action']) && $_REQUEST['action']=='getmovies' ){
   $movies_list = getMovies();
   echo json_encode($movies_list);
@@ -107,7 +117,11 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=='getPriorite' ){
   echo json_encode($priorite);
   exit(); // termine le script (ce qui est en dessous ne s'exécutera pas)
 }
-
+if (isset($_REQUEST['action']) && $_REQUEST['action'] == 'getListComments') {
+  $comments_list = getComments();
+  echo json_encode($comments_list);
+  exit();
+}
 if ( isset($_REQUEST['action']) && $_REQUEST['action']=='getplaylist' ){
   $playlist = getPlaylist($_REQUEST['idprofile']);
   echo json_encode($playlist);

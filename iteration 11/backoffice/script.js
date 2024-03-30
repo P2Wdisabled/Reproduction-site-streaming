@@ -20,10 +20,15 @@ let getListPriorite = async function(){
   Priorite.render('.list-priorite', data);
 }
 
-
+let getListComments = async function(){
+  let response = await fetch("../server/script.php?action=getListComments");
+  let data = await response.json();
+  Commentaire.render('.list-comments', data);
+}
 setTimeout(() => {
   getProfilList();
   getListCategorie();
   getListFilms();
   getListPriorite();
+  getListComments();
 }, 500);

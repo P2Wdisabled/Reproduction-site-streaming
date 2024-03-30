@@ -24,6 +24,12 @@ function getPriorite(){
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }
+function getComments(){
+    $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
+    $answer = $cnx->query("select id_comment, titre, commentaire from Films join Commentaires on Commentaires.id_film = Films.id_film"); 
+    $res = $answer->fetchAll(PDO::FETCH_OBJ);
+    return $res;
+}
 function getPlaylist($idprofil){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
     $answer = $cnx->query("select * from Films join Playlist on Films.id_film = Playlist.id_film join Comptes on Comptes.id_utilisateur = Playlist.id_profile where id_profile='$idprofil'"); 
@@ -77,6 +83,12 @@ function removePriorite($priorite){
     $res = $answer->rowCount();
     return $res;
 }
+function deleteComment($commentaire){
+    $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
+    $answer = $cnx->query("delete from Commentaires where id_comment='$commentaire'"); 
+    $res = $answer->rowCount();
+    return $res;
+}
 function getMovie($id){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
     $answer = $cnx->query("select * from Films where id_film='$id'");
@@ -110,7 +122,13 @@ function editNote($idmovie, $idprofile, $note){
 function editComment($idmovie, $idprofile, $commentaire){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
     $date = date('Y-m-d');
-    $answer = $cnx->query("REPLACE Commentaires set id_profile='$idprofile', id_film='$idmovie', commentaire='$commentaire', date='$date'"); 
+    $answer = $cnx->query("SELECT * FROM Commentaires WHERE id_profile='$idprofile' and id_film='$idmovie'"); 
+    $res = $answer->rowCount();
+    if ($res > 0) {
+        $answer = $cnx->query("UPDATE Commentaires set commentaire='$commentaire', date='$date' WHERE id_profile='$idprofile' and id_film='$idmovie'"); 
+    }else {
+        $answer = $cnx->query("INSERT INTO Commentaires (id_profile, id_film, commentaire, date) VALUES ('$idprofile', '$idmovie', '$commentaire', '$date')"); 
+    }
     $res = $answer->rowCount();
     return $res;
 }

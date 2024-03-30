@@ -74,6 +74,18 @@
 
             </form>
 
+            
+            <form method='GET' action="../server/script.php">
+
+                <h3>retirer un commentaire</h3>
+
+                <select name="commentaire" class="list-comments">
+                </select>
+
+                <input type="submit" value="deleteComment" name="action">
+
+            </form>
+
         </section>
         <script type="module">
 
@@ -86,7 +98,10 @@
 
             import {Priorite} from './options.js';
             window.Priorite = Priorite;
-            // faire de même pour tous les composants que vous créez
+            
+            
+            import {Commentaire} from './options.js';
+            window.Commentaire = Commentaire;
         </script>
         <script src="./script.js">
         </script>
