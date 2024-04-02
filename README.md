@@ -30,3 +30,8 @@ Vendredi 22 Mars :
  - livrable 12 (9h-13h)         |   4h
 
  temps total : 21h
+
+ UPDATE :
+ - debugging : 1h
+
+ temps total 22h
