@@ -15,10 +15,10 @@
         <section id="app">
             <header class=""> <!-- contenu statique -->
                 <p class="">Selectionnez la catégorie du film</p><br>
-                <select onchange="getmovies()" class="categorie-containers" name="" id="">
+                <select onchange="getmovies()" class="select categorie-containers" name="" id="">
                 </select><br>
                 <p class="">Selectionnez le compte utilisateur</p>
-                <select class="profiles-containers" name="" id="">
+                <select class="select profiles-containers" name="" id="">
                 </select><br>
                 <button class="" onclick="getplaylist()">voir ma playlist</button>
                 <br>
@@ -54,6 +54,17 @@
             
             import {Commentaire} from './component/commentaires/script.js';
             window.Commentaire = Commentaire;
+
+            
+            
+async function loadData() {
+  await getListCategorie();
+  await getListProfil();
+  await getPriorite();
+  await getmovies(); 
+}
+
+loadData();
         </script>
 
         <script src="./main.js"></script>

@@ -6,94 +6,93 @@
     </head>
     <body>
 
-        <section>
+        <section class="">
 
-            <nav> 
-                <h1>BACK OFFICE</h1>
-                <h2>Ajouter/modifier un film</h2>
+            <nav class=""> 
+                <h1 class="">BACK OFFICE</h1>
+                <h2 class="">Ajouter/modifier un film</h2>
             </nav>
             
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>ajouter un film</h3>
+                <h3 class="">ajouter un film</h3>
                 
-                <input type="text" name="titre" placeholder="Saisir le titre du film" required>
-                <input type="text" name="realisateur" placeholder="Saisir le nom du/des réalisateur(s)" required>
-                <input type="number" name="annee" placeholder="Saisir l'année de sortie du film" required>
-                <input type="text" name="urlImg" placeholder="Saisir l'url de la cover du film" required>
-                <input type="text" name="trailer" placeholder="Saisir l'url du trailer du film" required>
-                <select class="categorie-containers" name="categorie">
+                <input class="" type="text" name="titre" placeholder="Saisir le titre du film" required>
+                <input class="" type="text" name="realisateur" placeholder="Saisir le nom du/des réalisateur(s)" required>
+                <input class="" type="number" name="annee" placeholder="Saisir l'année de sortie du film" required>
+                <input class="" type="text" name="urlImg" placeholder="Saisir l'url de la cover du film" required>
+                <input class="" type="text" name="trailer" placeholder="Saisir l'url du trailer du film" required>
+                <select class="select categorie-containers" name="categorie">
                 </select>
                 
-                <input type="submit" value="addFilm" name="action">
+                <input class="" type="submit" value="addFilm" name="action">
 
             </form>
 
 
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>ajouter un profile</h3>
+                <h3 class="">ajouter un profile</h3>
                 
-                <input type="text" name="name" placeholder="Saisir le nom du profile" required>
-                </select>
+                <input class="" type="text" name="name" placeholder="Saisir le nom du profile" required>
                 
-                <input type="submit" value="addprofile" name="action">
+                <input class="" type="submit" value="addprofile" name="action">
 
             </form>
 
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>Supprimer un profil</h3>
+                <h3 class="">Supprimer un profil</h3>
 
-                <select name="profile" class="list-profils">
+                <select name="profile" class="select list-profils">
                 </select>
 
-                <input type="submit" value="Delete" name="action">
+                <input class="" type="submit" value="Delete" name="action">
 
             </form>
 
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>mettre en avant un film</h3>
+                <h3 class="">mettre en avant un film</h3>
 
-                <select name="priorite" class="list-films">
+                <select name="priorite" class="select list-films">
                 </select>
 
-                <input type="submit" value="Priorite" name="action">
+                <input class="" type="submit" value="Priorite" name="action">
 
             </form>
 
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>retirer un film de la mise en avant</h3>
+                <h3 class="">retirer un film de la mise en avant</h3>
 
-                <select name="priorite" class="list-priorite">
+                <select name="priorite" class="select list-priorite">
                 </select>
 
-                <input type="submit" value="DelPriorite" name="action">
+                <input class="" type="submit" value="DelPriorite" name="action">
 
             </form>
 
             
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>retirer un commentaire</h3>
+                <h3 class="">retirer un commentaire</h3>
 
-                <select name="commentaire" class="list-comments">
+                <select name="commentaire" class="select list-comments">
                 </select>
 
-                <input type="submit" value="deleteComment" name="action">
+                <input class="" type="submit" value="deleteComment" name="action">
 
             </form>
 
-            <form method='GET' action="../server/script.php">
+            <form class="" method='GET' action="../server/script.php">
 
-                <h3>valider un commentaire</h3>
+                <h3 class="">valider un commentaire</h3>
 
-                <select name="commentaire" class="list-pending">
+                <select name="commentaire" class="select list-pending">
                 </select>
 
-                <input type="submit" value="acceptComment" name="action">
+                <input class="" type="submit" value="acceptComment" name="action">
 
             </form>
         </section>
@@ -112,6 +111,18 @@
             
             import {Commentaire} from './options.js';
             window.Commentaire = Commentaire;
+            
+            
+async function loadData() {
+  await getProfilList();
+  await getListCategorie();
+  await getListFilms();
+  await getListPriorite();
+  await getListComments();
+  await getListPending();
+}
+
+loadData();
         </script>
         <script src="./script.js">
         </script>

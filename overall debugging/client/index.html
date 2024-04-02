@@ -54,8 +54,20 @@
             
             import {Commentaire} from './component/commentaires/script.js';
             window.Commentaire = Commentaire;
+
+            
+async function loadData() {
+  await getListCategorie();
+  await getListProfil();
+  await getPriorite();
+  await getmovies(); 
+}
+
+loadData();
         </script>
 
-        <script src="./main.js"></script>
+        <script src="./main.js">
+            
+        </script>
     </body>
 </html>

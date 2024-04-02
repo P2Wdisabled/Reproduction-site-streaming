@@ -112,6 +112,18 @@
             
             import {Commentaire} from './options.js';
             window.Commentaire = Commentaire;
+            
+            
+async function loadData() {
+    await getProfilList();
+    await getListCategorie();
+    await getListFilms();
+    await getListPriorite();
+    await getListComments();
+    await getListPending();
+}
+
+loadData();
         </script>
         <script src="./script.js">
         </script>

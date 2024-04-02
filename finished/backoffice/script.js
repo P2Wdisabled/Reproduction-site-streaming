@@ -30,11 +30,3 @@ let getListPending = async function(){
   let data = await response.json();
   Commentaire.render('.list-pending', data);
 }
-setTimeout(() => {
-  getProfilList();
-  getListCategorie();
-  getListFilms();
-  getListPriorite();
-  getListComments();
-  getListPending();
-}, 500);

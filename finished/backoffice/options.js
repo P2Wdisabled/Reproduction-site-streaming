@@ -2,7 +2,7 @@
 
 
 /* on charge le template du composant Film */
-let template = "<option value='{{id}}'>{{nom}}</option>";
+let template = "<option class='' value='{{id}}'>{{nom}}</option>";
 
 /* on crée un objet Film vide qui va symboliser notre composant */
 let Profile = {}; 
@@ -46,7 +46,7 @@ export {Profile}
 
 
 /* on charge le template du composant Categorie */
-let template2 = "<option value='{{id}}'>{{titre}}</option>";
+let template2 = "<option class='' value='{{id}}'>{{titre}}</option>";
 
 /* on crée un objet Categorie vide qui va symboliser notre composant */
 let Categorie = {}; 
@@ -90,7 +90,7 @@ export {Categorie}
 
 
 /* on charge le template du composant Categorie */
-let template3 = "<option value='{{id}}'>{{titre}}</option>";
+let template3 = "<option class='' value='{{id}}'>{{titre}}</option>";
 
 /* on crée un objet Categorie vide qui va symboliser notre composant */
 let Priorite = {}; 
@@ -132,7 +132,7 @@ export {Priorite}
 
 
 /* on charge le template du composant Categorie */
-let template4 = "<option value='{{id}}'> Film : {{titre}} | Commentaire : '{{comment}}'</option>";
+let template4 = "<option class='' value='{{id}}'> Film : {{titre}} | Commentaire : '{{comment}}'</option>";
 
 /* on crée un objet Categorie vide qui va symboliser notre composant */
 let Commentaire = {}; 

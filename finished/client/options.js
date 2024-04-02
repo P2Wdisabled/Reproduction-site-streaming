@@ -2,7 +2,7 @@
 
 
 /* on charge le template du composant Categorie */
-let template = "<option value='{{id}}'>{{titre}}</option>";
+let template = "<option class='' value='{{id}}'>{{titre}}</option>";
 
 /* on crée un objet Categorie vide qui va symboliser notre composant */
 let Categorie = {}; 
@@ -27,7 +27,7 @@ Categorie.format =  function(obj) {
 */
 Categorie.render = async function(selector, data){
     // on formate un composant Categorie pour chaque objet du tableau
-    let html = "<option value='all'>all Categories</option>";
+    let html = "<option class='' value='all'>all Categories</option>";
     for(let obj of data){
         html += Categorie.format(obj); // on concatène (mettre bout à bout) les HTML des composants formatés  
     }
@@ -51,7 +51,7 @@ export {Categorie}
 
 
 /* on charge le template du composant Categorie */
-let template2 = "<option value='{{id}}'>{{nom}}</option>";
+let template2 = "<option class='' value='{{id}}'>{{nom}}</option>";
 
 /* on crée un objet Categorie vide qui va symboliser notre composant */
 let Profiles = {}; 

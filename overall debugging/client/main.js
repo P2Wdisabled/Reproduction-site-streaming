@@ -83,11 +83,4 @@ let getFilmbyName = async function() {
   Films.render('.films-container', data);
 }
 
-setTimeout(() => {
-  getListCategorie();
-  getListProfil();
-  getPriorite();
-}, 500);
-setTimeout(() => {
-  getmovies();
-}, 600);
+
