@@ -44,9 +44,7 @@ function getPlaylist($idprofil){
 }
 function addFilm($film, $rea, $annee, $img, $trailer, $categorie){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("insert into Films (titre, realisateur, annee, urlImage, urlTrailer, Priorite) VALUES ('$film', '$rea', '$annee', '$img', '$trailer', 0)");
-    $idFilm = $cnx->lastInsertId();
-    $answer = $cnx->query("insert into FilmCategorie (id_film, id_categorie) VALUES ($idFilm, $categorie)");
+    $answer = $cnx->query("insert into Films (titre, realisateur, annee, urlImage, urlTrailer, Priorite, id_categorie) VALUES ('$film', '$rea', '$annee', '$img', '$trailer', 0, '$categorie')");
     $res = $answer->rowCount();
     return $res;
 }
@@ -103,7 +101,7 @@ function getMovie($id){
 }
 function getMoviesbyid($id){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films LEFT JOIN Notes ON Films.id_film = Notes.id_film LEFT JOIN FilmCategorie ON FilmCategorie.id_film = Films.id_film LEFT JOIN Categories ON FilmCategorie.id_categorie = Categories.id_categorie WHERE Categories.id_categorie = $id GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
+    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films LEFT JOIN Notes ON Films.id_film = Notes.id_film JOIN Categories ON Films.id_categorie = Categories.id_categorie WHERE Categories.id_categorie = $id GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }
