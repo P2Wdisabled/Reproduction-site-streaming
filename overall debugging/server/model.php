@@ -2,7 +2,7 @@
 
 function getMovies(){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films JOIN Notes ON Films.id_film = Notes.id_film GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
+    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films LEFT JOIN Notes ON Films.id_film = Notes.id_film GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }
@@ -44,7 +44,7 @@ function getPlaylist($idprofil){
 }
 function addFilm($film, $rea, $annee, $img, $trailer, $categorie){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("insert into Films (titre, realisateur, annee, urlImage, urlTrailer) VALUES ('$film', '$rea', '$annee', '$img', '$trailer')");
+    $answer = $cnx->query("insert into Films (titre, realisateur, annee, urlImage, urlTrailer, Priorite) VALUES ('$film', '$rea', '$annee', '$img', '$trailer', 0)");
     $idFilm = $cnx->lastInsertId();
     $answer = $cnx->query("insert into FilmCategorie (id_film, id_categorie) VALUES ($idFilm, $categorie)");
     $res = $answer->rowCount();
@@ -103,33 +103,19 @@ function getMovie($id){
 }
 function getMoviesbyid($id){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films JOIN Notes ON Films.id_film = Notes.id_film JOIN FilmCategorie ON FilmCategorie.id_film = Films.id_film JOIN Categories ON FilmCategorie.id_categorie = Categories.id_categorie WHERE Categories.id_categorie = '$id'GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
+    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films LEFT JOIN Notes ON Films.id_film = Notes.id_film LEFT JOIN FilmCategorie ON FilmCategorie.id_film = Films.id_film LEFT JOIN Categories ON FilmCategorie.id_categorie = Categories.id_categorie WHERE Categories.id_categorie = $id GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }
 function getCommentaires($id){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("SELECT 
-    Commentaires.date AS date, 
-    Comptes.nom AS nom, 
-    Commentaires.commentaire AS commentaire,
-    Notes.note AS note
-FROM 
-    Commentaires
-INNER JOIN 
-    Comptes ON Commentaires.id_profile = Comptes.id_utilisateur
-LEFT JOIN 
-    Notes ON Commentaires.id_profile = Notes.id_profil AND Commentaires.id_film = Notes.id_film
-WHERE 
-Commentaires.id_film = 1 
-    AND Commentaires.status != 'pending';
-"); 
+    $answer = $cnx->query("SELECT Commentaires.date AS date, Comptes.nom AS nom, Commentaires.commentaire AS commentaire, Notes.note AS note FROM Commentaires INNER JOIN Comptes ON Commentaires.id_profile = Comptes.id_utilisateur LEFT JOIN Notes ON Commentaires.id_profile = Notes.id_profil AND Commentaires.id_film = Notes.id_film WHERE Commentaires.id_film = $id AND Commentaires.status != 'pending'"); 
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }
 function getMoviesbyname($titre){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(Notes.note) AS note FROM Films JOIN Notes ON Films.id_film = Notes.id_film WHERE titre LIKE '%$titre%' GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
+    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(note) AS note FROM Films LEFT JOIN Notes ON Films.id_film = Notes.id_film WHERE titre LIKE '%$titre%' GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }

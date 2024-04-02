@@ -88,3 +88,6 @@ setTimeout(() => {
   getListProfil();
   getPriorite();
 }, 500);
+setTimeout(() => {
+  getmovies();
+}, 600);
