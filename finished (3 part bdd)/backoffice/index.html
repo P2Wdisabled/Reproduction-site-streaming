@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Back Office</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/base.css">
+    </head>
+    <body>
+
+        <section class="">
+
+            <nav class=""> 
+                <h1 class="">BACK OFFICE</h1>
+                <h2 class="">Ajouter/modifier un film</h2>
+            </nav>
+            
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">ajouter un film</h3>
+                
+                <input class="" type="text" name="titre" placeholder="Saisir le titre du film" required>
+                <input class="" type="text" name="realisateur" placeholder="Saisir le nom du/des réalisateur(s)" required>
+                <input class="" type="number" name="annee" placeholder="Saisir l'année de sortie du film" required>
+                <input class="" type="text" name="urlImg" placeholder="Saisir l'url de la cover du film" required>
+                <input class="" type="text" name="trailer" placeholder="Saisir l'url du trailer du film" required>
+                <select class="select categorie-containers" name="categorie">
+                </select>
+                
+                <input class="" type="submit" value="addFilm" name="action">
+
+            </form>
+
+
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">ajouter un profile</h3>
+                
+                <input class="" type="text" name="name" placeholder="Saisir le nom du profile" required>
+                
+                <input class="" type="submit" value="addprofile" name="action">
+
+            </form>
+
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">Supprimer un profil</h3>
+
+                <select name="profile" class="select list-profils">
+                </select>
+
+                <input class="" type="submit" value="Delete" name="action">
+
+            </form>
+
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">mettre en avant un film</h3>
+
+                <select name="priorite" class="select list-films">
+                </select>
+
+                <input class="" type="submit" value="Priorite" name="action">
+
+            </form>
+
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">retirer un film de la mise en avant</h3>
+
+                <select name="priorite" class="select list-priorite">
+                </select>
+
+                <input class="" type="submit" value="DelPriorite" name="action">
+
+            </form>
+
+            
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">retirer un commentaire</h3>
+
+                <select name="commentaire" class="select list-comments">
+                </select>
+
+                <input class="" type="submit" value="deleteComment" name="action">
+
+            </form>
+
+            <form class="" method='GET' action="../server/script.php">
+
+                <h3 class="">valider un commentaire</h3>
+
+                <select name="commentaire" class="select list-pending">
+                </select>
+
+                <input class="" type="submit" value="acceptComment" name="action">
+
+            </form>
+        </section>
+        <script type="module">
+
+            import {Profile} from './options.js';
+            // on permet à Menu d'être accessible globalement (notamment par main.js)
+            window.Profile = Profile;
+
+            import {Categorie} from './options.js';
+            window.Categorie = Categorie;
+
+            import {Priorite} from './options.js';
+            window.Priorite = Priorite;
+            
+            
+            import {Commentaire} from './options.js';
+            window.Commentaire = Commentaire;
+            
+            
+async function loadData() {
+  await getProfilList();
+  await getListCategorie();
+  await getListFilms();
+  await getListPriorite();
+  await getListComments();
+  await getListPending();
+}
+
+loadData();
+        </script>
+        <script src="./script.js">
+        </script>
+    </body>
+</html>

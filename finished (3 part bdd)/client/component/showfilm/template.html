@@ -1,0 +1,11 @@
+<div class="film__trailer-container">
+    <iframe width="560" height="315" src="{{trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <p class="">Titre : {{titre}}</p><br>
+    <p class="">Réalisation {{rea}}</p><br>
+    <p class="">date de sortie : {{annee}}</p><br>
+    <textarea class="commentaire" id="" cols="15" rows="2"></textarea>
+    <input class="" type="submit" onclick="addComment('{{idmovie}}')" name="action" value="addComment">
+    <ul class="commentaires">
+        {{listCommentaires}}
+    </ul>
+</div>

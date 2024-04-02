@@ -1,0 +1,28 @@
+<ul class="film">
+    <li class="" onclick="showmovie('{{idmovie}}')">
+        <img class="" src="https://mmi.unilim.fr/~potevin1/SAE%202.03/client/asset/{{image}}"><br>
+    </li>
+    <li class="" onclick="showmovie('{{idmovie}}')">
+        <p class="">Titre : {{titre}}</p><br>
+    </li>
+
+    <li class="">
+        <p class="">Réalisation {{rea}}</p><br>
+    </li>
+    <li class="">
+        <p class="">date de sortie : {{annee}}</p><br>
+    </li>
+    <li class="">
+        <p class="">note moyenne : {{note}}</p><br>
+    </li>
+    <select class="select film__note" name="" id="" onchange="editnote('{{idmovie}}')">
+        <option value="1">1/5</option>
+        <option value="2">2/5</option>
+        <option value="3">3/5</option>
+        <option value="4">4/5</option>
+        <option value="5">5/5</option>
+    </select>
+    <li class="" onclick="addtoplaylist('{{idmovie}}')">
+        <p>Ajouter au favoris +</p><br>
+    </li>
+</ul>  

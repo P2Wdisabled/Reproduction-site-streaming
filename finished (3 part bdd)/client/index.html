@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Netfloux+ Prime Video</title>
+        <meta charset="UTF-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+       
+        <link rel="stylesheet" href="./css/base.css" />
+
+    </head>
+    <body>
+
+        
+        <section id="app">
+            <header class=""> <!-- contenu statique -->
+                <p class="">Selectionnez la catégorie du film</p><br>
+                <select onchange="getmovies()" class="select categorie-containers" name="" id="">
+                </select><br>
+                <p class="">Selectionnez le compte utilisateur</p>
+                <select class="select profiles-containers" name="" id="">
+                </select><br>
+                <button class="" onclick="getplaylist()">voir ma playlist</button>
+                <br>
+                <input type="text" class="searchbar" placeholder="saisir un film" onkeypress="getFilmbyName()">
+                
+            </header>
+            <p class="">mise en avant</p><br>
+            <div class="caroussel"></div><br>
+            <p class="">liste des films</p><br>
+            <div class="films-container"> <!-- contenu dynamique -->
+            </div>
+        </section>
+
+        <script type="module">
+
+            import {Films} from './component/films/script.js';
+            window.Films = Films;
+
+            import {Film} from './component/showfilm/script.js';
+            window.Film = Film;
+
+            import {Categorie} from './options.js';
+            window.Categorie = Categorie;
+            
+            import {Profiles} from './options.js';
+            window.Profiles = Profiles;
+
+            import {Playlist} from './component/playlist/script.js';
+            window.Playlist = Playlist;
+            
+            import {Priorite} from './component/priorite/script.js';
+            window.Priorite = Priorite;
+            
+            import {Commentaire} from './component/commentaires/script.js';
+            window.Commentaire = Commentaire;
+
+            
+            
+async function loadData() {
+  await getListCategorie();
+  await getListProfil();
+  await getPriorite();
+  await getmovies(); 
+}
+
+loadData();
+        </script>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
