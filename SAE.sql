@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : sam. 30 mars 2024 à 15:53
+-- Généré le : mar. 02 avr. 2024 à 10:11
 -- Version du serveur : 10.5.23-MariaDB-0+deb11u1
 -- Version de PHP : 8.1.27
 
@@ -76,7 +76,7 @@ CREATE TABLE `Commentaires` (
 
 INSERT INTO `Commentaires` (`id_comment`, `id_film`, `id_profile`, `date`, `commentaire`, `status`) VALUES
 (2, 1, 6, '2024-03-30', 'mais c pas serieux', 'accepted'),
-(3, 1, 2, '2024-03-30', 'let\'s Goooooo !!!!!!! le css la semaine pro ...', 'accepted');
+(4, 35, 6, '2024-04-02', 'normalement c\'est terminé', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,6 @@ CREATE TABLE `Comptes` (
 --
 
 INSERT INTO `Comptes` (`id_utilisateur`, `nom`) VALUES
-(2, 'jean'),
 (5, 'mel'),
 (6, 'louis');
 
@@ -119,7 +118,8 @@ INSERT INTO `FilmCategorie` (`id_film`, `id_categorie`) VALUES
 (2, 1),
 (2, 2),
 (3, 8),
-(3, 15);
+(3, 15),
+(35, 6);
 
 -- --------------------------------------------------------
 
@@ -142,9 +142,10 @@ CREATE TABLE `Films` (
 --
 
 INSERT INTO `Films` (`id_film`, `titre`, `realisateur`, `annee`, `urlImage`, `urlTrailer`, `Priorite`) VALUES
-(1, 'E.T.', 'Steven Spielberg', 1982, 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSV5O9PUahoMcrUOdrORPDRswRoQ0l1Qm1dxVo4lk9ykS4lb4Eg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Jva4IWuDYLM?si=SS8hW4FEuOhhpxFd\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 1),
-(2, 'Avengers: Endgame', 'Anthony et Joe Russo', 2019, 'https://fr.web.img2.acsta.net/pictures/19/04/04/09/04/0472053.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bgTlt5-l-AA?si=0mUOiD0ei6o0IBkg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 0),
-(3, 'Oppenheimer', 'Christopher Nolan', 2023, 'https://fr.web.img5.acsta.net/pictures/23/05/26/16/52/2793170.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/CoXtvSRpHgM?si=kZvWn_8U9f3M3TdT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 0);
+(1, 'E.T.', 'Steven Spielberg', 1982, 'https://mmi.unilim.fr/~potevin1/SAE%202.03/client/asset/et.jfif', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Jva4IWuDYLM?si=SS8hW4FEuOhhpxFd\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 0),
+(2, 'Avengers: Endgame', 'Anthony et Joe Russo', 2019, 'https://mmi.unilim.fr/~potevin1/SAE%202.03/client/asset/avengers-endgame.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/bgTlt5-l-AA?si=0mUOiD0ei6o0IBkg\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 1),
+(3, 'Oppenheimer', 'Christopher Nolan', 2023, 'https://mmi.unilim.fr/~potevin1/SAE%202.03/client/asset/oppenheimer.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/CoXtvSRpHgM?si=kZvWn_8U9f3M3TdT\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 0),
+(35, 'Spider-Man: Far From Home', '	Jon Watts', 2019, 'https://mmi.unilim.fr/~potevin1/SAE%202.03/client/asset/spiderman-farfromhome.jpg', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/inFIHmGshgk?si=kYpreCGtq5dex7V5\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>', 1);
 
 -- --------------------------------------------------------
 
@@ -157,15 +158,6 @@ CREATE TABLE `Notes` (
   `id_film` int(11) NOT NULL,
   `note` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Déchargement des données de la table `Notes`
---
-
-INSERT INTO `Notes` (`id_profil`, `id_film`, `note`) VALUES
-(2, 1, 5),
-(2, 2, 5),
-(2, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -183,12 +175,8 @@ CREATE TABLE `Playlist` (
 --
 
 INSERT INTO `Playlist` (`id_film`, `id_profile`) VALUES
-(1, 2),
 (1, 5),
-(2, 2),
-(2, 5),
-(3, 2),
-(3, 5);
+(35, 6);
 
 --
 -- Index pour les tables déchargées
@@ -254,7 +242,7 @@ ALTER TABLE `Categories`
 -- AUTO_INCREMENT pour la table `Commentaires`
 --
 ALTER TABLE `Commentaires`
-  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `Comptes`
@@ -266,7 +254,7 @@ ALTER TABLE `Comptes`
 -- AUTO_INCREMENT pour la table `Films`
 --
 ALTER TABLE `Films`
-  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_film` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Contraintes pour les tables déchargées
