@@ -1,17 +1,25 @@
-let getmovies = async function(){
-  let option = document.querySelector('.categorie-containers').value
-  if (option == "all") {
+let getmovies = async function(starting=true){
+  if (starting) {
     // attente de la réponse à la requête demandant les données d'une collection de Lego
     let response = await fetch("../server/script.php?action=getmovies");
     // attente de l'extration des données en format json de la réponse à la requête
     let data = await response.json();
     Films.render('.films-container', data);
   }else{
-    // attente de la réponse à la requête demandant les données d'une collection de Lego
-    let response = await fetch("../server/script.php?action=getmoviesbyid&idcategorie="+option);
-    // attente de l'extration des données en format json de la réponse à la requête
-    let data = await response.json();
-    Films.render('.films-container', data);
+    let option = document.querySelector('.categorie-containers').value
+    if (option == "all") {
+      // attente de la réponse à la requête demandant les données d'une collection de Lego
+      let response = await fetch("../server/script.php?action=getmovies");
+      // attente de l'extration des données en format json de la réponse à la requête
+      let data = await response.json();
+      Films.render('.films-container', data);
+    }else{
+      // attente de la réponse à la requête demandant les données d'une collection de Lego
+      let response = await fetch("../server/script.php?action=getmoviesbyid&idcategorie="+option);
+      // attente de l'extration des données en format json de la réponse à la requête
+      let data = await response.json();
+      Films.render('.films-container', data);
+    }
   }
 }
 
@@ -82,3 +90,4 @@ let getFilmbyName = async function() {
   let data = await response.json();
   Films.render('.films-container', data);
 }
+

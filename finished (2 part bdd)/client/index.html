@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./css/base.css" />
 
     </head>
-    <body>
+    <body onload="">
 
         
         <section id="app">
@@ -55,16 +55,16 @@
             import {Commentaire} from './component/commentaires/script.js';
             window.Commentaire = Commentaire;
 
+            async function  loadData() {
+           
+                await getListCategorie();
+                await getListProfil();
+                await getPriorite();
+                getmovies(); 
+            }
+            loadData();
             
-            
-async function loadData() {
-  await getListCategorie();
-  await getListProfil();
-  await getPriorite();
-  await getmovies(); 
-}
-
-loadData();
+          
         </script>
 
         <script src="./main.js"></script>
