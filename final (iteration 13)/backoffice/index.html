@@ -6,18 +6,17 @@
     </head>
     <body>
 
-        <section class="">
-
-            <nav class=""> 
-                <h1 class="">BACK OFFICE</h1>
-            </nav>
+        <section class="container">
             <div class="gestionnaire">
-                <label for="gestionnaire__film-box">Gestionnaire des films</label>
                 <input type="checkbox" checked name="" id="gestionnaire__film-box" class="gestionnaire__film-box">
-                <label for="gestionnaire__profil-box">Gestionnaire des profils</label>
+                <label class="gestionnaire__film-labelle" for="gestionnaire__film-box">Gestionnaire des films</label>
+
                 <input type="checkbox" name="" id="gestionnaire__profil-box" class="gestionnaire__profil-box">
-                <label for="gestionnaire__commentaire-box">Gestionnaire des commentaires</label>
+                <label class="gestionnaire__profil-labelle" for="gestionnaire__profil-box">Gestionnaire des profils</label>
+
                 <input type="checkbox" name="" id="gestionnaire__commentaire-box" class="gestionnaire__commentaire-box">
+                <label class="gestionnaire__commentaire-labelle" for="gestionnaire__commentaire-box">Gestionnaire des commentaires</label>
+
                 
                 <div class="gestionnaire__film">
                     <form class="" method='GET' action="../server/script.php">

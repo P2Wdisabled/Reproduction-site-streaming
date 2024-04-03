@@ -1,59 +1,26 @@
 body {
     background: var(--clr-blackbg);
-}
-
-nav {
-    width:30rem;
-    margin-left:15rem;
-    margin-top: 4rem;
-    text-align: center;
-}
-
-nav h1 {
-    font-size: xx-large;
-}
-
-
-form {
-    width:30rem;
-    margin-left:15rem;
-    margin-top: 3em;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
 }
-
-form select {
-    font-size: medium;
-    border-style: none;
-}
-
-form input, select {
-    margin-top: 1rem;
-    font-size: medium;
-    border-style: none;
-    display: inline-block;
-    height: 2rem;
-}
-
-form input[type=submit] {
-    background-color: rgb(151, 92, 36);
-   
-}
-
-form h3 {
-    border-bottom-style:solid;
-    border-width: 1px;
-    height: 1.5em;
-}
-
 .gestionnaire{
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    top: 0;
+    align-self: center;
+    position: relative;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
 }
 input[type=checkbox]{
-    visibility: hidden;
+    display: none;
 }
 /* CSS pour désactiver la visibilité des autres classes lorsque la checkbox est cochée */
 .gestionnaire__film-box:checked ~ .gestionnaire__profil,
@@ -62,10 +29,53 @@ input[type=checkbox]{
 }
 
 .gestionnaire__profil-box:checked ~ .gestionnaire__film,
-.gestionnaire__profil-box:checked ~ .gestionnaire__profil {
+.gestionnaire__profil-box:checked ~ .gestionnaire__commentaire{
     display: none;
 }
 .gestionnaire__commentaire-box:checked ~ .gestionnaire__film,
-.gestionnaire__commentaire-box:checked ~ .gestionnaire__commentaire {
+.gestionnaire__commentaire-box:checked ~ .gestionnaire__profil {
     display: none;
+}
+
+.gestionnaire__profil-box:checked + .gestionnaire__profil-labelle {
+    display: flex;
+    flex-shrink: 0;
+    border: 2px solid red;
+    background-color: brown;
+}
+.gestionnaire__commentaire-box:checked + .gestionnaire__commentaire-labelle {
+    display: flex;
+    flex-shrink: 0;
+    border: 2px solid red;
+    background-color: brown;
+}
+.gestionnaire__film-box:checked + .gestionnaire__film-labelle {
+    display: flex;
+    flex-shrink: 0;
+    border: 2px solid red;
+    background-color: brown;
+}
+.gestionnaire__profil-labelle, .gestionnaire__film-labelle, .gestionnaire__commentaire-labelle{
+    display: flex;
+    padding: 1rem;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+.gestionnaire__profil, .gestionnaire__film, .gestionnaire__commentaire{
+    border: 2px solid red;
+    background-color: brown;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 1rem;
+    width: 69.3%;
+}
+.gestionnaire__film {
+    top: 0;
+}
+.gestionnaire__profil {
+    top: -11.45rem;
+}
+.gestionnaire__commentaire {
+    top: -11.45rem;
 }
