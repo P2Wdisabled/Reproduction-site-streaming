@@ -22,6 +22,17 @@ body {
 input[type=checkbox]{
     display: none;
 }
+.redirection{
+    text-decoration: none;
+    text-align: center;
+    top: 2rem;
+    left: 2rem;
+    position: absolute;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    background-color: brown;
+    border: 1px solid red;
+}
 /* CSS pour désactiver la visibilité des autres classes lorsque la checkbox est cochée */
 .gestionnaire__film-box:checked ~ .gestionnaire__profil,
 .gestionnaire__film-box:checked ~ .gestionnaire__commentaire{
@@ -66,6 +77,8 @@ input[type=checkbox]{
     background-color: brown;
     display: flex;
     position: relative;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 1rem;
     width: 69.3%;

@@ -90,4 +90,3 @@ let getFilmbyName = async function() {
   let data = await response.json();
   Films.render('.films-container', data);
 }
-

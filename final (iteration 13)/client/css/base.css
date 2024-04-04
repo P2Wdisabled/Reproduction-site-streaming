@@ -4,3 +4,6 @@
 
 @import '../component/films/style.css';
 @import '../component/showfilm/style.css';
+@import '../component/commentaires/style.css';
+@import '../component/priorite/style.css';
+@import '../component/playlist/style.css';

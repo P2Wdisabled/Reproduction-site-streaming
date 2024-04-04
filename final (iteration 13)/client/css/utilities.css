@@ -15,3 +15,18 @@ body {
   align-items: center;
   justify-content: center;
 }
+.select, .select option, input {
+  color: var(--clr-blackbg);
+}
+
+.redirection{
+  text-decoration: none;
+  text-align: center;
+  top: 2rem;
+  right: 2rem;
+  position: absolute;
+  padding: 1rem 0.5rem;
+  border-radius: 10px;
+  background-color: brown;
+  border: 1px solid red;
+}
