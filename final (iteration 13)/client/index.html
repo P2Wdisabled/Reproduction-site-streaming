@@ -7,25 +7,45 @@
         <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
        
         <link rel="stylesheet" href="./css/base.css" />
+        <link rel="shortcut icon" href="./asset/favicon.ico" type="image/x-icon">
 
     </head>
     <body>
-        <a class="redirection" href="../backoffice/">Aller coté backoffice</a>
-        <section id="app">
-            <header class=""> <!-- contenu statique -->
-                <p class="">Selectionnez la catégorie du film</p><br>
-                <select onchange="getmovies(false)" class="select categorie-containers" name="" id="">
-                </select><br>
-                <p class="">Selectionnez le compte utilisateur</p>
-                <select class="select profiles-containers" name="" id="">
-                </select><br>
-                <button class="" onclick="getplaylist()">voir ma playlist</button>
-                <br>
-                <input type="text" class="searchbar" placeholder="saisir un film" onkeypress="getFilmbyName()">
+        
+    <button class="scrollbtn" onclick="scrollToTop()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+      </svg></button>
+        <section class="app">
+            <header class="nav"> <!-- contenu statique -->
+                <div class="nav__labelle">
+                    <p class="labelle__text">Selectionnez la catégorie du film</p><br>
+                    <select onchange="getmovies(false)" class="select categorie-containers" name="" id="">
+                    </select>
+                </div>
+                <div class="nav__labelle">
+                    <p class="labelle__text">Selectionnez le compte utilisateur</p>
+                    <select onchange="switchprofil()" class="select profiles-containers" name="" id="">
+                    </select>
+                </div>
+                <button class="nav__playlist" onclick="getplaylist()">voir ma playlist</button>
+                <div class="input-group">
+                    <span class="input-group-text">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+    </svg>
+                    </span>
+                    <input oninput="getFilmbyName()" type="text" class="searchbar" placeholder="saisir un film">
+                  </div>
+                  <a class="redirection" href="../backoffice/">Aller coté backoffice</a>
                 
             </header>
             <p class="">mise en avant</p><br>
-            <div class="caroussel"></div><br>
+            <div class="carousel-container">
+                <div class="carousel">
+                </div>
+                <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
+            </div><br>
             <p class="">liste des films</p><br>
             <div class="films-container"> <!-- contenu dynamique -->
             </div>
@@ -55,11 +75,15 @@
             window.Commentaire = Commentaire;
 
             async function  loadData() {
-           
                 await getListCategorie();
                 await getListProfil();
+                await loadProfiles();
                 await getPriorite();
-                getmovies(); 
+                await getmovies(); 
+                await setupPlaylistButton();
+                setupRating();
+                startAutoScroll(); 
+                startcarousel();
             }
             loadData();
             

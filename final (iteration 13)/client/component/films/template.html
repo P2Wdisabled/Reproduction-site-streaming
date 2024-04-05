@@ -15,14 +15,10 @@
     <li class="">
         <p class="">note moyenne : {{note}}</p><br>
     </li>
-    <select class="select film__note{{idmovie}}" name="" id="" onchange="editnote('{{idmovie}}')">
-        <option value="1">1/5</option>
-        <option value="2">2/5</option>
-        <option value="3">3/5</option>
-        <option value="4">4/5</option>
-        <option value="5">5/5</option>
-    </select>
-    <li class="" onclick="addtoplaylist('{{idmovie}}')">
-        <p>Ajouter au favoris +</p><br>
-    </li>
+    <div class="select-film" name="" data-film-id="{{idmovie}}" onchange="editnote('{{idmovie}}')">
+        
+    </div>
+    <div class="playlist-button" data-film-id="'{{idmovie}}'" onclick="switchplaylist('{{idmovie}}')">
+        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bookmark-plus' viewBox='0 0 16 16'><path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z'/><path d='M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4'/></svg>
+    </div>
 </ul>  

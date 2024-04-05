@@ -174,6 +174,17 @@ if ( isset($_REQUEST['action']) && $_REQUEST['action']=='acceptComment' && isset
   echo json_encode($accepted);
   exit(); // termine le script (ce qui est en dessous ne s'exécutera pas)
 }
+if (isset($_REQUEST['action']) && $_REQUEST['action']=='getUserNote' && isset($_REQUEST['idUser']) && !empty($_REQUEST['idUser']) && isset($_REQUEST['idFilm']) && !empty($_REQUEST['idFilm'])){
+  $note = getUserNote($_REQUEST['idUser'], $_REQUEST['idFilm']);
+  echo json_encode($note);
+  exit();
+}
+
+if (isset($_REQUEST['action']) && $_REQUEST['action']=='getUserNotes' && isset($_REQUEST['idUser']) && !empty($_REQUEST['idUser'])){
+  $note = getUserNotes($_REQUEST['idUser']);
+  echo json_encode($note);
+  exit();
+}
 http_response_code(404);
 
 ?>

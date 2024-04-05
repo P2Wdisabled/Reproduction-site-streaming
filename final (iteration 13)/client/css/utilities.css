@@ -15,18 +15,159 @@ body {
   align-items: center;
   justify-content: center;
 }
-.select, .select option, input {
+.select, .select option, input, .select-film, .select-film option {
   color: var(--clr-blackbg);
 }
 
 .redirection{
   text-decoration: none;
   text-align: center;
-  top: 2rem;
-  right: 2rem;
-  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
   padding: 1rem 0.5rem;
   border-radius: 10px;
   background-color: brown;
   border: 1px solid red;
+  box-shadow: inset -5px -5px 10px 2px black;
+
+}
+.logo {
+  width: 18rem;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 2rem;
+  gap: 1rem;
+}
+.app {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scrollbtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  opacity: 0; /* masqué par défaut */
+  transition: opacity 0.3s ease-in-out; /* transition smooth */
+}
+
+.scrollbtn.show {
+  opacity: 1; /* visible lorsqu'il a la classe .show */
+}
+
+.carousel-container {
+  position: relative;
+  width: 400px; /* Largeur du carrousel */
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 400px; /* Largeur du carrousel */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+.input-group-text{
+display: flex;
+align-items: center;
+padding: 0.375rem 0.75rem;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+color: #dee2e6;
+text-align: center;
+white-space: nowrap;
+background-color: #2b3035;
+border: 1px solid #495057;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+border-top-right-radius: 0;
+border-bottom-right-radius: 0;
+}
+.input-group{
+position: relative;
+display: flex;
+flex-wrap: wrap;
+align-items: stretch;
+width: 22rem;
+height: 50%;
+}
+
+.searchbar {
+display: block;
+width: 15rem;
+padding: 0.375rem 0.75rem;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+color: #dee2e6;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+background-color: #2b3035;
+background-clip: padding-box;
+border: 1px solid #495057;
+
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 0;
+border-bottom-left-radius: 0;
+transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.nav__playlist{
+width: 25%;
+background-color: brown;
+border: 1px solid red;
+box-shadow: inset -5px -5px 10px 2px black;
+
+}
+.nav__labelle{
+ width: 20rem;
 }

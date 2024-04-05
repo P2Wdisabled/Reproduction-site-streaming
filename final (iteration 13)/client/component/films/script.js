@@ -20,7 +20,13 @@ Films.format =  function(obj) {
     html = html.replaceAll('{{titre}}', obj.titre);
     html = html.replace('{{rea}}', obj.realisateur);
     html = html.replace('{{annee}}', obj.annee);
-    html = html.replace('{{note}}', obj.note);
+    let note = null
+    if (obj.note == null) {
+        note = "non noté";
+    }else{
+        note = parseFloat(obj.note).toFixed(2);
+    }
+    html = html.replace('{{note}}', note);
     return html;
 }
 

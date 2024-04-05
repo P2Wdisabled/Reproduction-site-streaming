@@ -143,3 +143,16 @@ function acceptComment($idcomment){
     $res = $answer->rowCount();
     return $res;
 }
+function getUserNote($iduser, $idfilm){
+    $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
+    $answer = $cnx->query("SELECT note FROM Notes WHERE id_profil='$iduser' AND id_film='$idfilm'"); 
+    $res = $answer->fetchAll(PDO::FETCH_OBJ);
+    return $res;
+}
+
+function getUserNotes($iduser){
+    $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
+    $answer = $cnx->query("SELECT id_film, note FROM Notes WHERE id_profil='$iduser'"); 
+    $res = $answer->fetchAll(PDO::FETCH_OBJ);
+    return $res;
+}

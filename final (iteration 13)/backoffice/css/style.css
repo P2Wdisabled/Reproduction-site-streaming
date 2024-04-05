@@ -2,6 +2,7 @@ body {
     background: var(--clr-blackbg);
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .gestionnaire{
     display: flex;
@@ -91,4 +92,9 @@ input[type=checkbox]{
 }
 .gestionnaire__commentaire {
     top: -11.45rem;
+}
+.logo {
+  width: 25rem;
+  height: 5.5rem;
+  margin: 0 50%;
 }
