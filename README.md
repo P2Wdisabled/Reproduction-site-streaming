@@ -30,6 +30,3 @@ Vendredi 22 Mars :
  - livrable 12 (9h-13h)         |   4h
 
  temps total : 21h
-
-
- Désormais j'ai entamé l'étape du design (dossier **final (iteration 13)**), pour simplifier la création du design à faire, je vais créer un dossier de **composant** pour faire un à un chacun des composants
