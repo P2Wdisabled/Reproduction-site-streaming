@@ -29,4 +29,4 @@ Vendredi 22 Mars :
  - livrable 11 (22Mars 16h - 9h)|   2h
  - livrable 12 (9h-13h)         |   4h
 
- temps total : 21h
+ temps total : 21h 
