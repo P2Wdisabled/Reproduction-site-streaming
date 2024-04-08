@@ -38,7 +38,7 @@ function getPending(){
 }
 function getPlaylist($idprofil){
     $cnx = new PDO("mysql:host=localhost;dbname=potevin1", "potevin1", "potevin1");
-    $answer = $cnx->query("select * from Films join Playlist on Films.id_film = Playlist.id_film join Comptes on Comptes.id_utilisateur = Playlist.id_profile where id_profile='$idprofil'"); 
+    $answer = $cnx->query("SELECT Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite, AVG(Notes.note) AS moyenne_note FROM Films LEFT JOIN (SELECT id_film, AVG(note) AS note FROM Notes GROUP BY id_film) AS Notes ON Films.id_film = Notes.id_film JOIN Playlist ON Films.id_film = Playlist.id_film JOIN Comptes ON Comptes.id_utilisateur = Playlist.id_profile WHERE Playlist.id_profile = '$idprofil' GROUP BY Films.id_film, titre, realisateur, annee, urlImage, urlTrailer, Priorite"); 
     $res = $answer->fetchAll(PDO::FETCH_OBJ);
     return $res;
 }
