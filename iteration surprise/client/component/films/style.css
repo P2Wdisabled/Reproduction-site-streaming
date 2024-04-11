@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--clr-whitetxt);
+  color: var(--clr-white);
   gap: 0.5rem;
   list-style: none;
 }
@@ -13,7 +13,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  color: var(--clr-whitetxt);
+  color: var(--clr-white);
   list-style: none;
 }
 .films-container .film {
@@ -21,7 +21,7 @@
 }
 .film__title, .film__realisation, .film__release {
   overflow: hidden;
-  color: #fff;
+  color: var(--clr-white);
   font-size: 16px;
   line-height: 22px;
   max-height: 60px;

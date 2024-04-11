@@ -2,9 +2,22 @@
 
 :root {
   --clr-dark: hsl(253, 69%, 8%);
+  --clr-black: #000000;
+  --clr-halfblack: rgb(0, 0, 0, 0.5);
+  --clr-07black: rgb(0, 0, 0, 0.5);
   --clr-white: hsl(0, 0%, 100%);
-  --clr-blackbg: #121212;
-  --clr-whitetxt: hsl(0, 0%, 100%, 0.8);
+  --clr-white2: #ffffffcc;
+  --clr-white3: #dee2e6;
+  --clr-white4: #efefef;
+  --clr-grey: #888;
+  --clr-grey2: #999999;
+  --clr-lightBlue: rgb(0, 146, 243);
+  --clr-blue: rgb(16,86,201);
 
+  
+  --clr-background: #121212;
+  --clr-foreground: hsl(0, 0%, 100%, 0.8);
+  --clr-blackbg: var(--clr-background);
+  --clr-white: var(--clr-foreground);
   --ff-sans: "DM sans", sans-serif;
 }

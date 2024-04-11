@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   background-color: transparent;
-  color: var(--clr-whitetxt);
+  color: var(--clr-foreground);
   gap: 0.5rem;
   list-style: none;
 }
@@ -13,7 +13,7 @@
   height: 95%;
   background-color: var(--clr-blackbg);
   border: none;
-  color: var(--clr-whitetxt);
+  color: var(--clr-foreground);
 }
 .film__commentaire-bg{
   position: absolute;
@@ -21,7 +21,7 @@
   z-index: -1;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201), rgb(0, 146, 243));
+  background: linear-gradient(-45deg, var(--clr-lightBlue), var(--clr-blue), var(--clr-lightBlue));
   border-radius: 5px;
 }
 .commentaire-box {
