@@ -1,0 +1,42 @@
+.film__trailer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+  color: var(--clr-whitetxt);
+  gap: 0.5rem;
+  list-style: none;
+}
+.film__commentaire {
+  width: 95%;
+  height: 95%;
+  background-color: var(--clr-blackbg);
+  border: none;
+  color: var(--clr-whitetxt);
+}
+.film__commentaire-bg{
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201), rgb(0, 146, 243));
+  border-radius: 5px;
+}
+.commentaire-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 10rem;
+  height: 5rem;
+}
+.commentaires {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}

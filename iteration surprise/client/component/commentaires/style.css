@@ -1,0 +1,17 @@
+.film__trailer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--clr-whitetxt);
+  gap: 0.5rem;
+  list-style: none;
+}
+.commentaire__message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  gap: 0.5rem;
+}

@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    justify-content: center;
+    background: var(--clr-blackbg);
+    flex-wrap: wrap;
+}
+.gestionnaire{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-self: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+input[type=checkbox]{
+    display: none;
+}
+.redirection{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    padding: 1rem 0.5rem;
+    background-image: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201));
+    border: 1px solid rgb(0, 146, 243);
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+.input {
+    background-image: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201), rgb(0, 146, 243));
+    border: 2px solid black;
+}
+/* CSS pour désactiver la visibilité des autres classes lorsque la checkbox est cochée */
+.gestionnaire__film-box:checked ~ .gestionnaire__profil,
+.gestionnaire__film-box:checked ~ .gestionnaire__commentaire{
+    display: none;
+}
+
+.gestionnaire__profil-box:checked ~ .gestionnaire__film,
+.gestionnaire__profil-box:checked ~ .gestionnaire__commentaire{
+    display: none;
+}
+.gestionnaire__commentaire-box:checked ~ .gestionnaire__film,
+.gestionnaire__commentaire-box:checked ~ .gestionnaire__profil {
+    display: none;
+}
+
+.gestionnaire__profil-box:checked + .gestionnaire__profil-labelle {
+    display: flex;
+    background-image: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201));
+    border: 2px solid rgb(0, 146, 243);
+    flex-shrink: 0;
+}
+.gestionnaire__commentaire-box:checked + .gestionnaire__commentaire-labelle {
+    display: flex;
+    background-image: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201));
+    border: 2px solid rgb(0, 146, 243);
+    flex-shrink: 0;
+}
+.gestionnaire__film-box:checked + .gestionnaire__film-labelle {
+    display: flex;
+    background-image: linear-gradient(-45deg, rgb(0, 146, 243), rgb(16,86,201));
+    border: 2px solid rgb(0, 146, 243);
+    flex-shrink: 0;
+}
+.gestionnaire__profil-labelle, .gestionnaire__film-labelle, .gestionnaire__commentaire-labelle{
+    display: flex;
+    position: relative;
+    padding: 1rem;
+    border-radius: 10px 10px 0 0;
+}
+.gestionnaire__profil, .gestionnaire__film, .gestionnaire__commentaire{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 69.3%;
+    padding: 1rem;
+    border: 2px solid rgb(0, 146, 243);
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+.gestionnaire__film {
+    top: 0;
+}
+.gestionnaire__profil {
+    top: -11.45rem;
+}
+.gestionnaire__commentaire {
+    top: -11.45rem;
+}
+.logo {
+  width: 25rem;
+  height: 5.5rem;
+  margin: 0 50%;
+}
+.gestionnaire__profil, .gestionnaire__commentaire {
+    top: -9rem;
+}
+select, select option {
+    color: var(--clr-blackbg);
+}

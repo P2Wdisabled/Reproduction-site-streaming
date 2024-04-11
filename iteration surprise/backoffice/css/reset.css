@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html, body, *{
+  margin: 0;
+  padding: 0;
+  color: var(--clr-whitetxt);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width:30rem;
+  margin: 0;
+}
+
+form select {
+  border-style: none;
+  font-size: medium;
+}
+
+form input, select {
+  display: inline-block;
+  height: 2rem;
+  margin-top: 1rem;
+  border-style: none;
+  font-size: medium;
+}
+
+form input[type=submit] {
+  background-color: rgb(151, 92, 36);
+ 
+}
+
+form h3 {
+  height: 1.5em;
+  border-width: 1px;
+  border-bottom-style:solid;
+}
