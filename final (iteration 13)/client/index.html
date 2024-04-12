@@ -1,93 +1,98 @@
 <html>
-    <head>
-        <title>Netfloux+ Prime Video</title>
-        <meta charset="UTF-8">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
-       
-        <link rel="stylesheet" href="./css/base.css" />
-        <link rel="shortcut icon" href="./asset/favicon.ico" type="image/x-icon">
 
-    </head>
-    <body>
-        
-    <button class="scrollbtn" onclick="scrollToTop()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
-      </svg></button>
-        <section class="app">
-            <header class="nav"> <!-- contenu statique -->
-                <div class="nav__labelle">
-                    <p class="labelle__text">Selectionnez la catégorie du film</p><br>
-                    <select onchange="getmovies(false)" class="select categorie-containers" name="" id="">
-                    </select>
-                </div>
-                <div class="nav__labelle">
-                    <p class="labelle__text">Selectionnez le compte utilisateur</p>
-                    <select onchange="switchprofil()" class="select profiles-containers" name="" id="">
-                    </select>
-                </div>
-                <button class="nav__playlist" onclick="getplaylist()">voir ma playlist</button>
-                <div class="input-group">
-                    <span class="input-group-text">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
-    </svg>
-                    </span>
-                    <input oninput="getFilmbyName()" type="text" class="searchbar" placeholder="saisir un film">
-                  </div>
-                  <a class="redirection" href="../backoffice/">Aller coté backoffice</a>
-                
-            </header>
-            <div class="carousel-container">
-                <div class="carousel">
-                </div>
-                <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
-                <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
-            </div><br>
-            <div class="films-container"> <!-- contenu dynamique -->
+<head>
+    <title>Netfloux+ Prime Video</title>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="shortcut icon" href="./asset/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <button class="scrollbtn" onclick="scrollToTop()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+            fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+        </svg></button>
+    <section class="app">
+        <header class="nav"> <!-- contenu statique -->
+            <div class="nav__labelle">
+                <p class="labelle__text">Selectionnez la catégorie du film</p><br>
+                <select onchange="getmovies(false)" class="select categorie-containers" name="" id="">
+                </select>
             </div>
-        </section>
+            <div class="nav__labelle">
+                <p class="labelle__text">Selectionnez le compte utilisateur</p>
+                <select onchange="switchprofil()" class="select profiles-containers" name="" id="">
+                </select>
+            </div>
+            <button class="nav__playlist" onclick="getplaylist()">voir ma playlist</button>
+            <div class="input-group">
+                <span class="input-group-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0">
+                        </path>
+                    </svg>
+                </span>
+                <input oninput="getFilmbyName()" type="text" class="searchbar" placeholder="saisir un film">
+            </div>
+            <a class="redirection" href="../backoffice/">Aller coté backoffice</a>
 
-        <script type="module">
+        </header>
+        <div class="carousel-container">
+            <div class="carousel">
+            </div>
+            <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
+        </div><br>
+        <div class="films-container"> <!-- contenu dynamique -->
+        </div>
+    </section>
 
-            import {Films} from './component/films/script.js';
-            window.Films = Films;
+    <script type="module">
 
-            import {Film} from './component/showfilm/script.js';
-            window.Film = Film;
+        import { Films } from './component/films/script.js';
+        window.Films = Films;
 
-            import {Categorie} from './options.js';
-            window.Categorie = Categorie;
-            
-            import {Profiles} from './options.js';
-            window.Profiles = Profiles;
+        import { Film } from './component/showfilm/script.js';
+        window.Film = Film;
 
-            import {Playlist} from './component/playlist/script.js';
-            window.Playlist = Playlist;
-            
-            import {Priorite} from './component/priorite/script.js';
-            window.Priorite = Priorite;
-            
-            import {Commentaire} from './component/commentaires/script.js';
-            window.Commentaire = Commentaire;
+        import { Categorie } from './options.js';
+        window.Categorie = Categorie;
 
-            async function  loadData() {
-                await getListCategorie();
-                await getListProfil();
-                await loadProfiles();
-                await getPriorite();
-                await getmovies(); 
-                await setupPlaylistButton();
-                setupRating();
-                startAutoScroll(); 
-                startcarousel();
-            }
-            loadData();
-            
-          
-        </script>
+        import { Profiles } from './options.js';
+        window.Profiles = Profiles;
 
-        <script src="./main.js"></script>
-    </body>
+        import { Priorite } from './component/priorite/script.js';
+        window.Priorite = Priorite;
+
+        import { Commentaire } from './component/commentaires/script.js';
+        window.Commentaire = Commentaire;
+
+        async function loadData() {
+            await getListCategorie();
+            await getListProfil();
+            await loadProfiles();
+            await getPriorite();
+            await getmovies();
+            await setupPlaylistButton();
+            setupRating();
+            startAutoScroll();
+            startcarousel();
+        }
+        loadData();
+
+
+    </script>
+
+    <script src="./main.js"></script>
+</body>
+
 </html>

@@ -36,9 +36,9 @@
                     <span class="bar bottom"></span>
                 </label>
                 <div class="nav__left">
-                    <a href=""><img class="logo" src="./asset/logo.png" alt=""></a>
+                    <a href=""><img class="logo" src="./asset/logo.png"></a>
                     <div class="nav__labelle categorie-labelle">
-                        <select onchange="getmovies(false)" class="select categorie-containers" name="" id="">
+                        <select onchange="getmovies(false)" class="select categorie-containers">
                         </select>
                     </div>
                     <div class="input-group">
@@ -57,7 +57,7 @@
             </div>
             <div class="nav__right">
                 <div class="nav__labelle profiles-labelle">
-                    <select onchange="switchprofil()" class="select profiles-containers" name="" id="">
+                    <select onchange="switchprofil()" class="select profiles-containers">
                     </select>
                     <div class="button-bg"></div>
                 </div>
@@ -209,7 +209,7 @@
 
         async function loadData() {
             await getPriorite();
-            getmovies();
+            await getmovies();
             await getListCategorie();
             await getListProfil();
             await loadProfiles();
