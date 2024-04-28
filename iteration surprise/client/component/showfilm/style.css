@@ -4,7 +4,7 @@
   align-items: center;
   flex-direction: column;
   background-color: transparent;
-  color: var(--clr-foreground);
+  color: var(--clr-white);
   gap: 0.5rem;
   list-style: none;
 }
@@ -12,8 +12,9 @@
   width: 95%;
   height: 95%;
   background-color: var(--clr-blackbg);
-  border: none;
-  color: var(--clr-foreground);
+  border: 1px solid var(--clr-white);
+  border-radius: 10px;
+  color: var(--clr-white);
 }
 .film__commentaire-bg{
   position: absolute;
@@ -37,7 +38,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 60%;
+  color: var(--clr-white);
   gap: 1rem;
 }
 .film__release {

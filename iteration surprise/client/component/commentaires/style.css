@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--clr-whitetxt);
+  color: var(--clr-white);
   gap: 0.5rem;
   list-style: none;
 }
